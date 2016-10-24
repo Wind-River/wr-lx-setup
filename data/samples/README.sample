@@ -1,0 +1,80 @@
+This is a distribution builder project.  It was constructed by the
+wr-lx-setup.  The project was constructed using the following arguments:
+
+####SETUP_ARGS####
+
+
+Quickstart Instructions
+-----------------------
+You must first create a build directory:
+
+$ . ./oe-init-build-env <build>
+
+The <build> is the directory to create, if not specified the system will
+default to the directory 'build'.
+
+Once the build directory has been created, the system will change your
+working directory to be inside of the build directory.  Each time you
+open a new shell session you will need to source the oe-init-build-env
+script as indicated above.
+
+Once in the build directory edit the 'conf/local.conf' file.  Please
+refer to the comments in the file for specific configuration instructions.
+
+After configuring your build directory, you may now run bitbake commands.
+Bitbake commands are of the format: bitbake <recipe>
+
+For example:
+
+$ bitbake core-image-minimal
+
+Once your have built an image, you can boot this using QEMU (for compatible
+MACHINE settings) using the 'runqemu' command, such as:
+
+$ runqemu ####DEFAULTMACHINE####
+
+Changing your project settings
+------------------------------
+At any time you can re-run the setup program using different arguments.  This
+will update your program with any new dependencies, as well as reconstruct
+other project files.  You can use 'git show' to see the changes made.
+
+Note: the setup program will not change any build directories.  You will need
+to manually sync your conf/local.conf and conf/bblayers.conf to the versions
+in the config directory.  (A script is in development to assist with this.)
+
+
+To update your project
+----------------------
+There are two methods that can be used to update the project directory.
+Keep in mind though, the build directories are not updated with the project,
+so you will need to manually update your conf/local.conf and 
+conf/bblayers.conf yourself.  (A script is in development to assist with
+this.)
+
+The preferred way of updating your project project is to re-run the setup
+program.
+
+First update setup, for example:
+
+$ cd setup
+$ git pull
+$ cd ..
+
+Then re-run the setup program with the original arguments.
+
+$ setup/setup.sh ####SETUP_ARGS####
+
+Updating this way will allow the setup program to recompute dependency
+information from the layer index.
+
+Alternatively, you can run the 'repo sync' command.  This will NOT recompute
+any dependencies and will only update the git repositories.  For example:
+
+$ repo sync
+
+
+License
+-------
+See the various layers and repositories for their respective license
+information.
