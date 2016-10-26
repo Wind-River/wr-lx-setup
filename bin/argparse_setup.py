@@ -16,7 +16,6 @@
 # Note this class MUST run in both python2 and python3
 
 import argparse
-import logging
 import string
 import sys
 
