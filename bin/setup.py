@@ -202,6 +202,7 @@ class Setup():
         self.project_setup()
 
         self.update_project()
+
         self.update_manifest()
 
         self.update_gitignore()
@@ -424,9 +425,8 @@ class Setup():
 
     def project_setup(self):
         logging.debug('Starting')
-        if not os.path.exists(self.project_dir + '/.git'):
-            # Run this last as it does the initial project commit
-            self.setup_git_project_dir()
+
+        # Put local project setup rules here...
 
         logging.debug('Done')
 
@@ -682,6 +682,7 @@ class Setup():
             'README',
             'default.xml',
             '.gitignore',
+            '.gitconfig',
             ]
 
         if os.path.exists('config/site.conf.sample'):
@@ -691,27 +692,24 @@ class Setup():
         if os.listdir('config/log'):
             filelist.append('config/log')
 
+        # git init
+        if not os.path.exists(self.project_dir + '/.git'):
+            cmd = [self.tools['git'], 'init', self.project_dir]
+            if self.quiet == self.default_repo_quiet:
+                cmd.append(self.quiet)
+            self.run_cmd(cmd, cwd=self.conf_dir)
+
         # git add manifest. (Since these files are new, always try to add them)
-        cmd = [self.tools['git'], 'add', '--']
-        for file in filelist:
-            cmd.append(file)
+        cmd = [self.tools['git'], 'add', '--'] + filelist
         self.run_cmd(cmd, cwd=self.project_dir)
 
-        # Now add anything known, updated, but not already added
-        cmd = [self.tools['git'], 'add', '-u', '.']
-        self.run_cmd(cmd, cwd=self.project_dir)
-
-        cmd = [self.tools['git'], 'diff-index', '--quiet', 'HEAD', '--']
-        for file in filelist:
-            cmd.append(file)
+        cmd = [self.tools['git'], 'diff-index', '--quiet', 'HEAD', '--'] + filelist
         ret = subprocess.Popen(cmd, cwd=self.project_dir, close_fds=True)
         ret.wait()
         if (ret.returncode != 0):
             logging.warning('Updated project configuration')
             # Command failed -- so self.default_xml changed...
-            cmd = [self.tools['git'], 'commit', '-m', 'Configuration change - %s' % (self.setup_args), '--']
-            for file in filelist:
-                cmd.append(file)
+            cmd = [self.tools['git'], 'commit', '-m', 'Configuration change - %s' % (self.setup_args), '--'] + filelist
             self.run_cmd(cmd, cwd=self.project_dir)
 
         logging.debug('Done')
@@ -734,27 +732,6 @@ class Setup():
             # repo sync
             cmd = ['-j', self.jobs]
             self.call_initial_repo_sync(cmd)
-
-        logging.debug('Done')
-
-    def setup_git_project_dir(self):
-        logging.debug('Starting')
-
-        # git init
-        cmd = [self.tools['git'], 'init', self.project_dir]
-        if self.quiet == self.default_repo_quiet:
-            cmd.append(self.quiet)
-        self.run_cmd(cmd, cwd=self.conf_dir)
-
-        # git add file.
-        cmd = [self.tools['git'], 'add', '.']
-        self.run_cmd(cmd, cwd=self.project_dir)
-
-        # Perform the initial commit
-        cmd = [self.tools['git'], 'commit', '-am', 'Initial Project Setup']
-        if self.quiet == self.default_repo_quiet:
-            cmd.append(self.quiet)
-        self.run_cmd(cmd, cwd=self.conf_dir)
 
         logging.debug('Done')
 
