@@ -72,9 +72,8 @@ required to reference the local mirror items.
 
 Contributing
 ------------
-
-Please refer to
-http://www.openembedded.org/wiki/Commit_Patch_Message_Guidelines
+Contributions submitted must be signed off under the terms of the Linux Foundation Developer's Certificate of Origin verion 1.1. Please refer to:
+   http://www.openembedded.org/wiki/Commit_Patch_Message_Guidelines
 for guidelines on the format of patches.
 
 To submit a patch either email the maintainer:
