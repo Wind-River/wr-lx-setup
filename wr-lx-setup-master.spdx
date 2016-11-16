@@ -1,0 +1,462 @@
+SPDXVersion: SPDX-2.0
+
+##------------------------------------------------------
+##			   SPDX 2.0 by Wind River
+##------------------------------------------------------
+
+
+##-------------------------
+## Document Information
+##-------------------------
+
+DataLicense: CC0-1.0
+SPDXID: SPDXRef-DOCUMENT
+DocumentName: wr-lx-setup-master.zip
+DocumentNamespace:  http://spdx.windriver.com/Reports2.0/604d9f2f5e1b8a11031a6b7d646ae2f1351df70b
+DocumentComment: <text>This file contains computer automated SPDX data. Computer automated data is created by using only computer automation analysis on the source code files contained in the package. That is, no human experts participated in the source code analysis. Although we continuously work to improve the quality by adding and/or improving various heuristics, and accessing different databases and rule-based systems, the quality is bounded by what can be achieved by way of computer automation. Please send your feedback to: spdx@WindRiver.com.  DISCLAIMER: This document is provided "as is" without any warranty whatsoever. This documentation may not be referenced or relied upon for its accuracy or comprehensiveness, or to determine legal obligations with respect to open source code contained in the software package it represents. Such determinations should be based upon recipient's independent legal analysis and by reference to the notices and licenses contained within the open source code itself. Wind River may change the contents of this document at any time at its sole discretion, and Wind River shall have no liability whatsoever arising from recipient's use of this information. </text>
+
+
+##-------------------------
+## Creation Information
+##-------------------------
+
+Creator: Tool: The Duke of Highlander
+Created: 2016-11-16T12:25:29Z
+CreatorComment: <text> DISCLAIMER: This document is provided "as is" without any warranty whatsoever. This documentation may not be referenced or relied upon for its accuracy or comprehensiveness, or to determine legal obligations with respect to open source code contained in the software package it represents. Such determinations should be based upon recipient's independent legal analysis and by reference to the notices and licenses contained within the open source code itself. Wind River may change the contents of this document at any time at its sole discretion, and Wind River shall have no liability whatsoever arising from recipient's use of this information.</text>
+LicenseListVersion: 2.0
+
+
+
+##-------------------------
+## Package Information
+##-------------------------
+
+PackageName: wr-lx-setup-master.zip
+SPDXID: SPDXRef-Pkg-wr-lx-setup-master.zip-604d9f2f5e1b8a11031a6b7d646ae2f1351df70b
+PackageFileName: wr-lx-setup-master.zip
+PackageDownloadLocation: NOASSERTION
+PackageVerificationCode: 760dcf682a7ce765292e7b0596b12dd046b13023
+PackageChecksum: SHA1: 604d9f2f5e1b8a11031a6b7d646ae2f1351df70b
+PackageChecksum: SHA256: 2cd4cef56f843f7c9e2b255609ad49978bbd9667db3ab74f9bbc4204b2f5be84
+PackageChecksum: MD5: e853376e709a1280a443d687a8d7215f
+## -------------- Package Licensing --------------
+PackageLicenseConcluded: GPL-2.0
+PackageLicenseDeclared: GPL-2.0
+PackageLicenseInfoFromFiles: GPL-2.0
+PackageCopyrightText: NOASSERTION
+
+
+##--------------------------
+## File Information
+##--------------------------
+
+FileName: ./wr-lx-setup-master/.gitignore
+SPDXID: SPDXRef-1-File-.gitignore-38cef81cbae07874da053dedb0cf25529f411639
+FileType: OTHER
+FileChecksum: SHA1: 38cef81cbae07874da053dedb0cf25529f411639
+FileChecksum: SHA256: 38a8697f63f955d3f13e869f19b455d2a76a04df7ac4bf535f04bf0881c78ce2
+FileChecksum: MD5: cadebbf245102585556005b1ba1e5283
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+
+
+## ----------------------- File -----------------------
+##
+FileName: ./wr-lx-setup-master/LICENSE
+SPDXID: SPDXRef-2-File-LICENSE-06877624ea5c77efe3b7e39b0f909eda6e25a4ec
+FileType: OTHER
+FileChecksum: SHA1: 06877624ea5c77efe3b7e39b0f909eda6e25a4ec
+FileChecksum: SHA256: ab15fd526bd8dd18a9e77ebc139656bf4d33e97fc7238cd11bf60e2b9b8666c6
+FileChecksum: MD5: 751419260aa954499f7abaabaa882bbe
+LicenseConcluded: GPL-2.0
+LicenseInfoInFile: GPL-2.0
+FileCopyrightText: <text> copyright interest in the program
+  `gnomovision'' (which makes passes at compilers) written by james hacker., copyright (c) year name of author
+    gnomovision comes with absolutely no warranty; for details type `show w''., copyright (c) <year>  <name of author>
+
+    this program is free software; you can redistribute it and/or modify, written in the body of this license.
+
+  9. the free software foundation may publish revised and/or new versions, authors commit to
+using it.  (some other free software foundation software is covered by, copyright (c) 1989, 1991 free software foundation, inc., </text>
+
+
+## ----------------------- File -----------------------
+##
+FileName: ./wr-lx-setup-master/README.md
+SPDXID: SPDXRef-3-File-README.md-98b4170934aa411605a24f0b242c38009c4d7687
+FileType: OTHER
+FileChecksum: SHA1: 98b4170934aa411605a24f0b242c38009c4d7687
+FileChecksum: SHA256: 94340930343c8a73c9be945fadf04afe9e4a4dfdc6c96224ee04e54a1e0a9233
+FileChecksum: MD5: d668dfd0414a31bb0506200afdf779a2
+LicenseConcluded: GPL-2.0
+LicenseInfoInFile: GPL-2.0
+FileCopyrightText: <text> https://github.com/wind-river/wr-lx-setup, http://www.openembedded.org/wiki/commit_patch_message_guidelines, https://github.com/wind-river/wr-lx-setup.git, mark.hatle@windriver.com, copyright (c) 2016 wind river systems, inc.
+
+this program is free software; you can redistribute it and/or modify </text>
+
+
+## ----------------------- File -----------------------
+##
+FileName: ./wr-lx-setup-master/setup.sh
+SPDXID: SPDXRef-4-File-setup.sh-7a26e45d4412262b3c1ebf46dba6a896a9074603
+FileType: SOURCE
+FileChecksum: SHA1: 7a26e45d4412262b3c1ebf46dba6a896a9074603
+FileChecksum: SHA256: f03f11aea84518d1b3cfb1f9cd22a1b1d041791f2563a14b29ed44b95ceb5d9b
+FileChecksum: MD5: 76380b76cecb9429ec198051b63d4151
+LicenseConcluded: GPL-2.0
+LicenseInfoInFile: GPL-2.0
+FileCopyrightText: <text> customer@company.com, copyright (c) 2016 wind river systems, inc.
+#
+# this program is free software; you can redistribute it and/or modify </text>
+
+
+## ----------------------- File -----------------------
+##
+FileName: ./wr-lx-setup-master/data/xml/bitbake.inc
+SPDXID: SPDXRef-5-File-bitbake.inc-e746e13f3642ec0d1b541a2acc91f98b13ce5a4d
+FileType: SOURCE
+FileChecksum: SHA1: e746e13f3642ec0d1b541a2acc91f98b13ce5a4d
+FileChecksum: SHA256: 9cfce28f7196ee0aea78edd161e2098879c5e244205ca929a1e3a7cf77f679c7
+FileChecksum: MD5: 9abc4362126a03e163ededba887fabeb
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+
+
+## ----------------------- File -----------------------
+##
+FileName: ./wr-lx-setup-master/data/xml/openembedded-core.inc
+SPDXID: SPDXRef-6-File-openembedded-core.inc-6925ece64fa46ae9b15abf25e467c57ea98e7f3a
+FileType: SOURCE
+FileChecksum: SHA1: 6925ece64fa46ae9b15abf25e467c57ea98e7f3a
+FileChecksum: SHA256: ab91439497fe7f42db64db5374b03f2fc8f2649741128c7cbcb5f478fba07364
+FileChecksum: MD5: 6463df7e25c9182016ed6fca494f5a74
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+
+
+## ----------------------- File -----------------------
+##
+FileName: ./wr-lx-setup-master/data/samples/bblayers.conf.sample
+SPDXID: SPDXRef-7-File-bblayers.conf.sample-a116d2cd6afc6d186e0b75e8603aaada56304700
+FileType: OTHER
+FileChecksum: SHA1: a116d2cd6afc6d186e0b75e8603aaada56304700
+FileChecksum: SHA256: 5e04ca8f0bc8ba28cf8aa30dacba8490e1192450e37e747f97f96dcff920e7f1
+FileChecksum: MD5: 985659451e91334b365e7c6bf05e7fa2
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+
+
+## ----------------------- File -----------------------
+##
+FileName: ./wr-lx-setup-master/data/samples/conf-notes.sample
+SPDXID: SPDXRef-8-File-conf-notes.sample-3316d4fb33d610353369bf7a8d3542e94fda262a
+FileType: OTHER
+FileChecksum: SHA1: 3316d4fb33d610353369bf7a8d3542e94fda262a
+FileChecksum: SHA256: c35d974c0471fcc6b9ff8690d8020fa5edbaa992727afb580f22e606848371ee
+FileChecksum: MD5: 4971257879bcbe51a99c5a555c5ce979
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+
+
+## ----------------------- File -----------------------
+##
+FileName: ./wr-lx-setup-master/data/samples/local.conf.sample
+SPDXID: SPDXRef-9-File-local.conf.sample-74ad2ce4edc3cc578885bd49ca2f6c027e6d2c9c
+FileType: OTHER
+FileChecksum: SHA1: 74ad2ce4edc3cc578885bd49ca2f6c027e6d2c9c
+FileChecksum: SHA256: ab8a071771d32989d2a6871d9446440714df1e816bd99f416c48eb9952151566
+FileChecksum: MD5: ac76fa7a7b0b2e12604c9a4479553ee7
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: <text> http://someserver.tld/share/sstate/path;downloadfilename=path </text>
+
+
+## ----------------------- File -----------------------
+##
+FileName: ./wr-lx-setup-master/data/samples/README-MIRROR.sample
+SPDXID: SPDXRef-10-File-README-MIRROR.sample-0285d60a78fd75bf30bd7baa799ed54707253d5e
+FileType: OTHER
+FileChecksum: SHA1: 0285d60a78fd75bf30bd7baa799ed54707253d5e
+FileChecksum: SHA256: 91f654baf15778ed11883cdfbf79a11058cc09c7a0d4b06f1c49d6f1f1e252ec
+FileChecksum: MD5: bccb76a041707299a928a3f7e5d6852b
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+
+
+## ----------------------- File -----------------------
+##
+FileName: ./wr-lx-setup-master/data/samples/README.sample
+SPDXID: SPDXRef-11-File-README.sample-fb1567d24ca27a0f6b4abb97e21b8598beeb914a
+FileType: OTHER
+FileChecksum: SHA1: fb1567d24ca27a0f6b4abb97e21b8598beeb914a
+FileChecksum: SHA256: e245e0931141b0e56d851d9c9775e5cb25de23f381d15f1e85ec958f74663d06
+FileChecksum: MD5: bcbfcb26e0174573df3a20e7994b7fdc
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+
+
+## ----------------------- File -----------------------
+##
+FileName: ./wr-lx-setup-master/bin/.pylintrc
+SPDXID: SPDXRef-12-File-.pylintrc-52c975ed98cd0881849156e032d7960e9092d9f0
+FileType: OTHER
+FileChecksum: SHA1: 52c975ed98cd0881849156e032d7960e9092d9f0
+FileChecksum: SHA256: a54341bcf20ac859c495ee10c30f14e42af06543b0316203337bb0564fc5d25e
+FileChecksum: MD5: 8f60957c3d23470029a1c34b22fea63a
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: <text> written in a file name "pylint_global.[txt|html]". this option is deprecated </text>
+
+
+## ----------------------- File -----------------------
+##
+FileName: ./wr-lx-setup-master/bin/argparse_setup.py
+SPDXID: SPDXRef-13-File-argparse_setup.py-2be7a5cd9d8c100e39376742b70b90a9d32a9279
+FileType: SOURCE
+FileChecksum: SHA1: 2be7a5cd9d8c100e39376742b70b90a9d32a9279
+FileChecksum: SHA256: 30c93abee5cb2a94502ab89cda915aac13bb45e8f7abe345ff7861447e1f16cf
+FileChecksum: MD5: 61f30582f37845fbd5fa85309567840e
+LicenseConcluded: GPL-2.0
+LicenseInfoInFile: GPL-2.0
+FileCopyrightText: <text> copyright (c) 2016 wind river systems, inc.
+#
+# this program is free software; you can redistribute it and/or modify </text>
+
+
+## ----------------------- File -----------------------
+##
+FileName: ./wr-lx-setup-master/bin/branch_mirror.py
+SPDXID: SPDXRef-14-File-branch_mirror.py-12fa2a8653a061de3c7475013cb4bb6e48fbff81
+FileType: SOURCE
+FileChecksum: SHA1: 12fa2a8653a061de3c7475013cb4bb6e48fbff81
+FileChecksum: SHA256: dea93937b3df2e0b7163de1081dc0e2ba1bd40f73ebe77bf9f25cb1150670a60
+FileChecksum: MD5: e7d5f33e9bd5023c766038fc30c771fd
+LicenseConcluded: GPL-2.0
+LicenseInfoInFile: GPL-2.0
+FileCopyrightText: <text> copyright (c) 2016 wind river systems, inc.
+#
+# this program is free software; you can redistribute it and/or modify </text>
+
+
+## ----------------------- File -----------------------
+##
+FileName: ./wr-lx-setup-master/bin/flatten_mirror.py
+SPDXID: SPDXRef-15-File-flatten_mirror.py-7bed1ee1f4ed605fe99cac17136055bf35d7b3ec
+FileType: SOURCE
+FileChecksum: SHA1: 7bed1ee1f4ed605fe99cac17136055bf35d7b3ec
+FileChecksum: SHA256: c553435f8de71f6cf46a6317d440d6438b642abfc4d0d756a1dea4bd3bc77038
+FileChecksum: MD5: 21f57522daffd667bdcbdd5618cfaf1f
+LicenseConcluded: GPL-2.0
+LicenseInfoInFile: GPL-2.0
+FileCopyrightText: <text> copyright (c) 2016 wind river systems, inc.
+#
+# this program is free software; you can redistribute it and/or modify </text>
+
+
+## ----------------------- File -----------------------
+##
+FileName: ./wr-lx-setup-master/bin/layer_index.py
+SPDXID: SPDXRef-16-File-layer_index.py-145b80ec00f92e2ea675fbab6502b821522eb1db
+FileType: SOURCE
+FileChecksum: SHA1: 145b80ec00f92e2ea675fbab6502b821522eb1db
+FileChecksum: SHA256: 40beb2b9aafa59f50e3ba4a8555606f06afbce4ec917a7cc47f6ef3c0857b625
+FileChecksum: MD5: 272c64781e6273bada2f58203a32b3b6
+LicenseConcluded: GPL-2.0
+LicenseInfoInFile: GPL-2.0
+FileCopyrightText: <text> http://layers.openembedded.org/layerindex/api/, copyright (c) 2016 wind river systems, inc.
+#
+# this program is free software; you can redistribute it and/or modify </text>
+
+
+## ----------------------- File -----------------------
+##
+FileName: ./wr-lx-setup-master/bin/logger_setup.py
+SPDXID: SPDXRef-17-File-logger_setup.py-6eea64d15753162d929287b07034dc2a204da51f
+FileType: SOURCE
+FileChecksum: SHA1: 6eea64d15753162d929287b07034dc2a204da51f
+FileChecksum: SHA256: 7abb45a28ac16193f94ec55fc67569e49759890126045899ecf13571be772d21
+FileChecksum: MD5: 39db2f70fd1880bf4946e202fc4366ef
+LicenseConcluded: GPL-2.0
+LicenseInfoInFile: GPL-2.0
+FileCopyrightText: <text> copyright (c) 2016 wind river systems, inc.
+#
+# this program is free software; you can redistribute it and/or modify </text>
+
+
+## ----------------------- File -----------------------
+##
+FileName: ./wr-lx-setup-master/bin/Makefile
+SPDXID: SPDXRef-18-File-Makefile-63ddadf5d13bb70a86cb5312ad07e32f55e8ec1a
+FileType: OTHER
+FileChecksum: SHA1: 63ddadf5d13bb70a86cb5312ad07e32f55e8ec1a
+FileChecksum: SHA256: 1a70aae3b39ab2f4021a081c261ea100afd4222ea753f76c8b1063e5dd91dc47
+FileChecksum: MD5: cf2372229bf43a0fe14659dc6793a197
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: <text> https://bootstrap.pypa.io/get-pip.py; </text>
+
+
+## ----------------------- File -----------------------
+##
+FileName: ./wr-lx-setup-master/bin/settings.py
+SPDXID: SPDXRef-19-File-settings.py-56fd74a8535e6020fe021e88f64c24321c3d4b72
+FileType: SOURCE
+FileChecksum: SHA1: 56fd74a8535e6020fe021e88f64c24321c3d4b72
+FileChecksum: SHA256: 6799ed04d3575ae52d4b5567d793305e9955046a7c3207959f2a4ee0e9a316cc
+FileChecksum: MD5: 8c75851f902e168306d76730df346a29
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: <text> https://github.com'', http://git.yoctoproject.org'', http://layers.openembedded.org/layerindex/api/'' </text>
+
+
+## ----------------------- File -----------------------
+##
+FileName: ./wr-lx-setup-master/bin/setup.py
+SPDXID: SPDXRef-20-File-setup.py-09f60772a0a5bc5eacfe529f223c45763ae5fd20
+FileType: SOURCE
+FileChecksum: SHA1: 09f60772a0a5bc5eacfe529f223c45763ae5fd20
+FileChecksum: SHA256: d8f625f0d7b6c9db84a91d95c9227e479b5782be9dcc6f1e4e6d61d543d81467
+FileChecksum: MD5: ca521b3269e2f9ce4e7eab56e056f365
+LicenseConcluded: GPL-2.0
+LicenseInfoInFile: GPL-2.0
+FileCopyrightText: <text> copyright (c) 2016 wind river systems, inc.
+#
+# this program is free software; you can redistribute it and/or modify </text>
+
+
+## ----------------------- File -----------------------
+##
+FileName: ./wr-lx-setup-master/bin/setup_help.py
+SPDXID: SPDXRef-21-File-setup_help.py-5fcf1def6d8dc0a4364bf490f83699a47696df65
+FileType: SOURCE
+FileChecksum: SHA1: 5fcf1def6d8dc0a4364bf490f83699a47696df65
+FileChecksum: SHA256: 294a85a0ff7f8c4f6ac2276cb149f5ea6eb2ad5bd106dcc08611bba419025fd0
+FileChecksum: MD5: 2d93d5fca6badcb7cc580886f1ec3ffb
+LicenseConcluded: GPL-2.0
+LicenseInfoInFile: GPL-2.0
+FileCopyrightText: <text> copyright (c) 2016 wind river systems, inc.
+#
+# this program is free software; you can redistribute it and/or modify </text>
+
+
+## ----------------------- File -----------------------
+##
+FileName: ./wr-lx-setup-master/bin/transform_index.py
+SPDXID: SPDXRef-22-File-transform_index.py-2972443fd52441eb38fda7f9349fc0b845b78e3a
+FileType: SOURCE
+FileChecksum: SHA1: 2972443fd52441eb38fda7f9349fc0b845b78e3a
+FileChecksum: SHA256: d9dbd9d0bd0d4f3b2aed947d76ba053b00a58e1e77c4918ba2d45c508890c752
+FileChecksum: MD5: c038591dcea666ada192ff26af84cad2
+LicenseConcluded: GPL-2.0
+LicenseInfoInFile: GPL-2.0
+FileCopyrightText: <text> http://layers.wrs.com/layerindex/api/'', http://msp-git.wrs.com/cgi-bin/cgit.cgi/'', http://git.wrs.com/cgit/'', copyright (c) 2016 wind river systems, inc.
+#
+# this program is free software; you can redistribute it and/or modify </text>
+
+
+## ----------------------- File -----------------------
+##
+FileName: ./wr-lx-setup-master/bin/utils_setup.py
+SPDXID: SPDXRef-23-File-utils_setup.py-66ba485cdbf480f4246bcff2194405812f042feb
+FileType: SOURCE
+FileChecksum: SHA1: 66ba485cdbf480f4246bcff2194405812f042feb
+FileChecksum: SHA256: e313cc8af8d945497843eaa011e4528bf3ebc6d3ff7b113b2d75599b36abc861
+FileChecksum: MD5: c82764fab0562eb4354b6c4a67ab5aca
+LicenseConcluded: GPL-2.0
+LicenseInfoInFile: GPL-2.0
+FileCopyrightText: <text> copyright (c) 2016 wind river systems, inc.
+#
+# this program is free software; you can redistribute it and/or modify </text>
+
+
+##-----------------------------
+##Relationship Information
+##-----------------------------
+Relationship: SPDXRef-DOCUMENT DESCRIBES SPDXRef-Pkg-wr-lx-setup-master.zip-604d9f2f5e1b8a11031a6b7d646ae2f1351df70b
+Relationship: SPDXRef-Pkg-wr-lx-setup-master.zip-604d9f2f5e1b8a11031a6b7d646ae2f1351df70b DESCRIBED_BY SPDXRef-DOCUMENT
+
+## --------------- Relationship ---------------
+Relationship: SPDXRef-Pkg-wr-lx-setup-master.zip-604d9f2f5e1b8a11031a6b7d646ae2f1351df70b CONTAINS SPDXRef-1-File-.gitignore-38cef81cbae07874da053dedb0cf25529f411639
+
+## --------------- Relationship ---------------
+Relationship: SPDXRef-Pkg-wr-lx-setup-master.zip-604d9f2f5e1b8a11031a6b7d646ae2f1351df70b CONTAINS SPDXRef-2-File-LICENSE-06877624ea5c77efe3b7e39b0f909eda6e25a4ec
+
+## --------------- Relationship ---------------
+Relationship: SPDXRef-Pkg-wr-lx-setup-master.zip-604d9f2f5e1b8a11031a6b7d646ae2f1351df70b CONTAINS SPDXRef-3-File-README.md-98b4170934aa411605a24f0b242c38009c4d7687
+
+## --------------- Relationship ---------------
+Relationship: SPDXRef-Pkg-wr-lx-setup-master.zip-604d9f2f5e1b8a11031a6b7d646ae2f1351df70b CONTAINS SPDXRef-4-File-setup.sh-7a26e45d4412262b3c1ebf46dba6a896a9074603
+
+## --------------- Relationship ---------------
+Relationship: SPDXRef-Pkg-wr-lx-setup-master.zip-604d9f2f5e1b8a11031a6b7d646ae2f1351df70b CONTAINS SPDXRef-5-File-bitbake.inc-e746e13f3642ec0d1b541a2acc91f98b13ce5a4d
+
+## --------------- Relationship ---------------
+Relationship: SPDXRef-Pkg-wr-lx-setup-master.zip-604d9f2f5e1b8a11031a6b7d646ae2f1351df70b CONTAINS SPDXRef-6-File-openembedded-core.inc-6925ece64fa46ae9b15abf25e467c57ea98e7f3a
+
+## --------------- Relationship ---------------
+Relationship: SPDXRef-Pkg-wr-lx-setup-master.zip-604d9f2f5e1b8a11031a6b7d646ae2f1351df70b CONTAINS SPDXRef-7-File-bblayers.conf.sample-a116d2cd6afc6d186e0b75e8603aaada56304700
+
+## --------------- Relationship ---------------
+Relationship: SPDXRef-Pkg-wr-lx-setup-master.zip-604d9f2f5e1b8a11031a6b7d646ae2f1351df70b CONTAINS SPDXRef-8-File-conf-notes.sample-3316d4fb33d610353369bf7a8d3542e94fda262a
+
+## --------------- Relationship ---------------
+Relationship: SPDXRef-Pkg-wr-lx-setup-master.zip-604d9f2f5e1b8a11031a6b7d646ae2f1351df70b CONTAINS SPDXRef-9-File-local.conf.sample-74ad2ce4edc3cc578885bd49ca2f6c027e6d2c9c
+
+## --------------- Relationship ---------------
+Relationship: SPDXRef-Pkg-wr-lx-setup-master.zip-604d9f2f5e1b8a11031a6b7d646ae2f1351df70b CONTAINS SPDXRef-10-File-README-MIRROR.sample-0285d60a78fd75bf30bd7baa799ed54707253d5e
+
+## --------------- Relationship ---------------
+Relationship: SPDXRef-Pkg-wr-lx-setup-master.zip-604d9f2f5e1b8a11031a6b7d646ae2f1351df70b CONTAINS SPDXRef-11-File-README.sample-fb1567d24ca27a0f6b4abb97e21b8598beeb914a
+
+## --------------- Relationship ---------------
+Relationship: SPDXRef-Pkg-wr-lx-setup-master.zip-604d9f2f5e1b8a11031a6b7d646ae2f1351df70b CONTAINS SPDXRef-12-File-.pylintrc-52c975ed98cd0881849156e032d7960e9092d9f0
+
+## --------------- Relationship ---------------
+Relationship: SPDXRef-Pkg-wr-lx-setup-master.zip-604d9f2f5e1b8a11031a6b7d646ae2f1351df70b CONTAINS SPDXRef-13-File-argparse_setup.py-2be7a5cd9d8c100e39376742b70b90a9d32a9279
+
+## --------------- Relationship ---------------
+Relationship: SPDXRef-Pkg-wr-lx-setup-master.zip-604d9f2f5e1b8a11031a6b7d646ae2f1351df70b CONTAINS SPDXRef-14-File-branch_mirror.py-12fa2a8653a061de3c7475013cb4bb6e48fbff81
+
+## --------------- Relationship ---------------
+Relationship: SPDXRef-Pkg-wr-lx-setup-master.zip-604d9f2f5e1b8a11031a6b7d646ae2f1351df70b CONTAINS SPDXRef-15-File-flatten_mirror.py-7bed1ee1f4ed605fe99cac17136055bf35d7b3ec
+
+## --------------- Relationship ---------------
+Relationship: SPDXRef-Pkg-wr-lx-setup-master.zip-604d9f2f5e1b8a11031a6b7d646ae2f1351df70b CONTAINS SPDXRef-16-File-layer_index.py-145b80ec00f92e2ea675fbab6502b821522eb1db
+
+## --------------- Relationship ---------------
+Relationship: SPDXRef-Pkg-wr-lx-setup-master.zip-604d9f2f5e1b8a11031a6b7d646ae2f1351df70b CONTAINS SPDXRef-17-File-logger_setup.py-6eea64d15753162d929287b07034dc2a204da51f
+
+## --------------- Relationship ---------------
+Relationship: SPDXRef-Pkg-wr-lx-setup-master.zip-604d9f2f5e1b8a11031a6b7d646ae2f1351df70b CONTAINS SPDXRef-18-File-Makefile-63ddadf5d13bb70a86cb5312ad07e32f55e8ec1a
+
+## --------------- Relationship ---------------
+Relationship: SPDXRef-Pkg-wr-lx-setup-master.zip-604d9f2f5e1b8a11031a6b7d646ae2f1351df70b CONTAINS SPDXRef-19-File-settings.py-56fd74a8535e6020fe021e88f64c24321c3d4b72
+
+## --------------- Relationship ---------------
+Relationship: SPDXRef-Pkg-wr-lx-setup-master.zip-604d9f2f5e1b8a11031a6b7d646ae2f1351df70b CONTAINS SPDXRef-20-File-setup.py-09f60772a0a5bc5eacfe529f223c45763ae5fd20
+
+## --------------- Relationship ---------------
+Relationship: SPDXRef-Pkg-wr-lx-setup-master.zip-604d9f2f5e1b8a11031a6b7d646ae2f1351df70b CONTAINS SPDXRef-21-File-setup_help.py-5fcf1def6d8dc0a4364bf490f83699a47696df65
+
+## --------------- Relationship ---------------
+Relationship: SPDXRef-Pkg-wr-lx-setup-master.zip-604d9f2f5e1b8a11031a6b7d646ae2f1351df70b CONTAINS SPDXRef-22-File-transform_index.py-2972443fd52441eb38fda7f9349fc0b845b78e3a
+
+## --------------- Relationship ---------------
+Relationship: SPDXRef-Pkg-wr-lx-setup-master.zip-604d9f2f5e1b8a11031a6b7d646ae2f1351df70b CONTAINS SPDXRef-23-File-utils_setup.py-66ba485cdbf480f4246bcff2194405812f042feb
+
+##--------------------
+## Annotation Information
+##--------------------
+Annotator: Tool: The Duke of Highlander
+AnnotationDate: 2016-11-16T12:25:29Z
+AnnotationType: REVIEW
+SPDXRef: SPDXRef-DOCUMENT
+AnnotationComment: <text> The analysis has been completely performed by an automated tool.  [---Q:LD,H:1.1,SV:2.0---]</text>
+
