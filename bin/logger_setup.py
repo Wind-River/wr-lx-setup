@@ -98,9 +98,9 @@ class ScreenFormatter(logging.Formatter):
     format than other log levels.
     """
 
-    plain_format = "%(msg)s"
+    plain_format = "%(message)s"
 
-    def __init__(self, fmt="%(levelname)s: %(msg)s", plain_log_level=15):
+    def __init__(self, fmt="%(levelname)s: %(message)s", plain_log_level=15):
         self.plain_log_level = plain_log_level
         logging.Formatter.__init__(self, fmt)
 
