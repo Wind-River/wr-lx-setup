@@ -123,7 +123,7 @@ if [ $help -ne 1 ]; then
 	if [ -n "$py_v2_check" ]; then
 		echo >&2 "OpenEmbedded requires 'python' to be python v2 (>= 2.7.3), not python v3."
 		echo >&2 "Please set up python v2 as your default 'python' interpreter."
-		return 1
+		exit 1
 	fi
 	unset py_v2_check
 
@@ -131,6 +131,7 @@ if [ $help -ne 1 ]; then
 	if [ "$py_v27_check" != "True" ]; then
 		echo >&2 "OpenEmbedded requires 'python' to be python v2 (>= 2.7.3), not python v3."
 		echo >&2 "Please upgrade your python v2."
+		exit 1
 	fi
 	unset py_v27_check
 
@@ -140,9 +141,15 @@ if [ $help -ne 1 ]; then
 	py_v34_check=$(python3 -c 'import sys; print(sys.version_info >= (3,4,0))')
 	if [ "$py_v34_check" != "True" ]; then
 		echo >&2 "BitBake requires Python 3.4.0 or later as 'python3'"
-		return 1
+		exit 1
 	fi
 	unset py_v34_check
+
+	repo_check=$(which repo 2>/dev/null)
+	if [ -z "$repo_check" ]; then
+		echo >&2 "Repo is not in the path, setup requires the repo tool."
+		exit 1
+	fi
 
 	# Configure the current directory so repo works seemlessly
 	add_gitconfig "user.name" "${GIT_USERNAME}"
