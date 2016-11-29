@@ -768,6 +768,7 @@ class Setup():
                         cache[url] = []
 
                     if entry['name'] == 'openembedded-core':
+                        bitbakeurl = '/'.join(url.split('/')[:-1] + [ settings.BITBAKE ])
                         bitbakeBranch = self.index.getBranch(lindex, layerBranch['branch'])['bitbake_branch']
                         bitbake_entry = {
                                 'name' : 'bitbake',
@@ -775,9 +776,9 @@ class Setup():
                                 'path' : path + '/bitbake',
                                 'revision' : bitbakeBranch,
                             }
-                        if settings.BITBAKE not in cache:
-                            cache[settings.BITBAKE] = []
-                        cache[settings.BITBAKE].append(bitbake_entry)
+                        if bitbakeurl not in cache:
+                            cache[bitbakeurl] = []
+                        cache[bitbakeurl].append(bitbake_entry)
 
                     cache[url].append(entry)
 
