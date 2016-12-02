@@ -1,0 +1,22 @@
+This directory includes various sample environment extension.  These have been
+contributed with the belief that someone might find them useful.
+
+They have not been enabled by default.
+
+To use them, they need to most likely be modified for your environment, and
+then copied into the data/environment.d directory.
+
+EULA:
+  This script will ask a user of they accept the End User License Agreement.
+
+  It will script will provide an opportunity to list the agreement, called
+  EULA, in the main wr-lx-setup directory.  The last line of the EULA is
+  expected to have a version string.
+
+  It also implements an additional argument '--accept-eula yes' as a way to
+  accept the EULA without interaction.
+
+  Once the EULA is accepted, various information is stored in the project
+  config directory.  This will allow someone to verify when and who
+  accepted the EULA, if there is ever a question.
+
