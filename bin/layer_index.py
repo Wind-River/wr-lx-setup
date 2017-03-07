@@ -183,6 +183,7 @@ class Layer_Index():
 
             return parsed
 
+        from urllib.request import URLError
         try:
             lindex['apilinks'] = _get_json_response(url)
         except URLError as e:
