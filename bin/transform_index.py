@@ -43,7 +43,7 @@
 #
 # To setup a new layerindex-Web session:
 #
-# git clone git://git.wrs.com/tools/layerindex-web
+# git clone git://git.yoctoproject.org/layerindex-web
 # cd layerindex-web
 # virtualenv -p python3 venv
 # . ./venv/bin/activate
@@ -71,7 +71,7 @@
 #
 #      LAYER_FETCH_DIR = "/home/mhatle/git/layerIndex/wr9-layers"
 #
-#      BITBAKE_REPO_URL = "git://git.wrs.com/bitbake"
+#      BITBAKE_REPO_URL = "git://git.openembedded.org/bitbake"
 #
 #
 # python3 manage.py syncdb
@@ -100,14 +100,15 @@
 #   (cd /tmp/transform ; cp `grep layer_type * | grep \"B\" | cut -f 1 -d :` /home/mhatle/git/lpd/wrlinux-x/data/index/bsps/.)
 #
 
-# We load from git.wrs.com and transform to msp-git.wrs.com
+# Example: We load from git.openembedded.org and transform to my-mirror.sample.com
 # Adjusting both the git URL and the webgit URL
-REPLACE = [
-            ( 'git://git.wrs.com/', '#BASE_URL#' ),
-            ( 'http://git.wrs.com/cgit/', '#BASE_WEB#' ),
-            ( '#BASE_URL#', 'git://msp-git.wrs.com/' ),
-            ( '#BASE_WEB#', 'http://msp-git.wrs.com/cgi-bin/cgit.cgi/' ),
-          ]
+#REPLACE = [
+#            ( 'git://git.openembedded.org/', '#BASE_URL#' ),
+#            ( 'http://git.openembedded.org/cgit/', '#BASE_WEB#' ),
+#            ( '#BASE_URL#', 'git://my-mirror.sample.com/' ),
+#            ( '#BASE_WEB#', 'http://my-mirror.sample.com/cgi-bin/cgit.cgi/' ),
+#          ]
+REPLACE = [ ]
 
 # Note the branch can be hard coded.  This is required only when you want
 # to limit the branch from a restapi-web import.  (This does not do anything
@@ -116,7 +117,7 @@ INDEXES = [
     {
         'DESCRIPTION' : 'Wind River Developer Layer Index',
         'TYPE' : 'restapi-web',
-        'URL' : 'http://layers.wrs.com/layerindex/api/',
+        'URL' : 'http://layers.openembedded.org/layerindex/api/',
         'CACHE' : None,
         'BRANCH' : 'WRLINUX_9_BASE',
     },
