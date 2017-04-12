@@ -1031,6 +1031,7 @@ class Setup():
             self.force_sync = '--force-sync'
 
     def set_debug(self):
+        self.debug_lvl += 1
         self.set_debug_env()
         self.quiet = None
         logger.setLevel(logging.DEBUG)
