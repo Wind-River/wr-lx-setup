@@ -255,7 +255,7 @@ class Layer_Index():
                     lindex['distros'].append({"layerbranch": lb['id'], "id": idx, "description": "default", "updated": "2016-01-01T00:00:00+0000", "name": "nodistro"})
                     idx = idx + 1
 
-        logger.debug('done.')
+        logger.debug('...loading %s from url %s, done.' % (name, url))
 
         return lindex
 
@@ -311,7 +311,7 @@ class Layer_Index():
                     lindex[entry] = []
                 lindex[entry] = self.__add_cmp_lists(pindex[entry], lindex[entry])
 
-            logger.debug('done.')
+            logger.debug('...loading json file %s, done.' % path)
 
         if os.path.exists(path) and os.path.isdir(path):
             logger.debug('Loading %s from path %s...' % (name, path))
@@ -321,11 +321,11 @@ class Layer_Index():
                         continue
                     fpath = os.path.join(dirpath, filename)
                     loadCache(fpath)
-            logger.debug('done.')
+            logger.debug('...loading %s from path %s, done.' % (name, path))
         elif os.path.exists(path):
             logger.debug('Loading %s from path %s...' % (name, path))
             loadCache(path)
-            logger.debug('done.')
+            logger.debug('...loading %s from path %s, done.' % (name, path))
         else:
             logger.error("Index %s: could not find path %s" % (name, path))
             return None
@@ -387,7 +387,7 @@ class Layer_Index():
                     lindex[entry] = []
                 lindex[entry] = self.__add_cmp_lists(pindex[entry], lindex[entry])
 
-            logger.debug('done.')
+            logger.debug('...loading json file %s, done.' % path)
 
         if os.path.exists(path) and os.path.isdir(path):
             logger.debug('Loading %s from path %s...' % (name, path))
@@ -397,11 +397,11 @@ class Layer_Index():
                         continue
                     fpath = os.path.join(dirpath, filename)
                     loadDB(fpath)
-            logger.debug('done.')
+            logger.debug('...loading %s from path %s, done.' % (name, path))
         elif os.path.exists(path):
             logger.debug('Loading %s from path %s...' % (name, path))
             loadDB(path)
-            logger.debug('done.')
+            logger.debug('...loading %s from path %s, done.' % (name, path))
         else:
             logger.error("Index %s: could not find path %s" % (name, path))
             return None
