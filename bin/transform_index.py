@@ -129,8 +129,6 @@ OUTPUT_FMT = 'django'
 SPLIT = False
 
 import os
-import sys
-
 from layer_index import Layer_Index
 
 index = Layer_Index(INDEXES, base_branch=None, replace=REPLACE)

@@ -42,7 +42,7 @@ class Layer_Index():
         m_index = {}
 
         if mirror:
-            for (dirpath, dirnames, filenames) in os.walk(mirror):
+            for (dirpath, _, filenames) in os.walk(mirror):
                 if dirpath.endswith('/.git') or '/.git/' in dirpath or dirpath.endswith('/xml') or '/xml/' in dirpath:
                     continue
                 for filename in filenames:
@@ -98,7 +98,7 @@ class Layer_Index():
                 logger.plain('Using index %s from the mirror index...' % (indexname))
                 lindex = m_index[indexname]
             else:
-               logger.plain('Loading index %s from %s...' % (indexname, indexurl))
+                logger.plain('Loading index %s from %s...' % (indexname, indexurl))
 
             # If not previously loaded from the mirror, attempt to load...
             if not lindex:
@@ -197,7 +197,7 @@ class Layer_Index():
         try:
             lindex['apilinks'] = _get_json_response(url)
         except URLError as e:
-            logger.warning("Index %s: could not connect to %s: %s" % (name, url, msg, e.reason))
+            logger.warning("Index %s: could not connect to %s: %s" % (name, url, e.reason))
             return None
 
         filter = ""
@@ -223,7 +223,7 @@ class Layer_Index():
             return lindex
 
         layerids = []
-        for i, layerBranch in enumerate(lindex['layerBranches']):
+        for _, layerBranch in enumerate(lindex['layerBranches']):
             layerids.append("%s" % layerBranch['layer'])
 
         lindex['layerItems'] = _get_json_response(lindex['apilinks']['layerItems'])
@@ -321,7 +321,7 @@ class Layer_Index():
 
         if os.path.exists(path) and os.path.isdir(path):
             logger.debug('Loading %s from path %s...' % (name, path))
-            for (dirpath, dirnames, filenames) in os.walk(path):
+            for (dirpath, _, filenames) in os.walk(path):
                 for filename in filenames:
                     if not filename.endswith('.json'):
                         continue
@@ -397,7 +397,7 @@ class Layer_Index():
 
         if os.path.exists(path) and os.path.isdir(path):
             logger.debug('Loading %s from path %s...' % (name, path))
-            for (dirpath, dirnames, filenames) in os.walk(path):
+            for (dirpath, _, filenames) in os.walk(path):
                 for filename in filenames:
                     if not filename.endswith('.json'):
                         continue
@@ -424,7 +424,7 @@ class Layer_Index():
                 newitem = OrderedDict(sorted(newitem.items(), key=lambda t: t[0]))
             elif type(newitem) == type(list()):
                 newitem.sort(key=lambda obj: obj['id'])
-                for index, entry in enumerate(newitem):
+                for index, _ in enumerate(newitem):
                     newitem[index] = self.sortEntry(newitem[index])
         except:
             pass
@@ -496,7 +496,7 @@ class Layer_Index():
             pindex['layerBranches'] = [lb]
 
             # We also need to include the layerbranch for any required dependencies...
-            (required, recommended) = self.getDependencies(lindex, lb)
+            (required, _) = self.getDependencies(lindex, lb)
             for req_lb in required:
                 found = False
                 for p_lb in pindex['layerBranches']:

@@ -307,14 +307,14 @@ class Setup():
             type = type + ["", 'machine'][machine != None]
             type = type + ["", 'recipe'][recipe != None]
 
-            if (':' in item):
+            if ':' in item:
                 # User told us which layer, so ignore the other bits -- they can be used later...
                 layer = item.split(':')[0]
                 distro = None
                 machine = None
                 recipe = None
 
-            # TODO: We do not actually verify the item we asked for (if a layer was specified) is available
+            # We do not actually verify the item we asked for (if a layer was specified) is available
             found = False
             for lindex in self.index.index:
                 branchid = self.index.getBranchId(lindex, self.get_branch(lindex=lindex))
@@ -371,7 +371,7 @@ class Setup():
         depCacheName = []
 
         def checkCache(lindex, layerBranch, addCache=False):
-            (collection, name, vcs_url) = self.index.getLayerInfo(lindex, layerBranch=layerBranch)
+            (collection, name, _) = self.index.getLayerInfo(lindex, layerBranch=layerBranch)
 
             if collection in depCacheCol or name in depCacheName:
                 return True
@@ -385,8 +385,7 @@ class Setup():
 
         def resolveIndexOrder(lindex, layerBranch, Queue):
             # We want to recompute the dependency in INDEXES order...
-            (collection, name, vcs_url) = self.index.getLayerInfo(lindex, layerBranch)
-            found = False
+            (collection, name, _) = self.index.getLayerInfo(lindex, layerBranch)
             for pindex in self.index.index:
                 # We already know it'll be in this index, so we just use it as-is...
                 if pindex == lindex:
@@ -490,7 +489,7 @@ class Setup():
 
                 path = 'layers/' + "".join(vcs_url.split('/')[-1:])
 
-                if (layer['name'] == 'openembedded-core'):
+                if layer['name'] == 'openembedded-core':
                     bitbakeBranch = self.index.getBranch(lindex, layerBranch['branch'])['bitbake_branch']
                     logger.debug('bitbake: %s %s %s' % ( settings.BITBAKE, path + '/bitbake', bitbakeBranch ))
 
@@ -543,8 +542,6 @@ class Setup():
         self.replacement['distros'] = {}
 
         def addLayer(lindex, layerBranch):
-            branchid = self.index.getBranchId(lindex, self.get_branch(lindex=lindex))
-
             paths = []
             for layer in self.index.find_layer(lindex, id=layerBranch['layer']):
                 vcs_url = layer['vcs_url']
@@ -634,7 +631,7 @@ class Setup():
             utils_setup.run_cmd(cmd, log=2, environment=self.env, cwd=path)
 
         # Make sure the directory is empty, use -f to ignore failures
-        for (dirpath, dirnames, filenames) in os.walk(path):
+        for (dirpath, _, filenames) in os.walk(path):
             if dirpath.endswith('/.git') or path + '/.git' in dirpath:
                 continue
             for filename in filenames:
@@ -707,10 +704,10 @@ class Setup():
                 continue
             fxml.write('    <remote  name="%s" fetch="%s"/>\n' % (remote, self.remotes[remote]))
 
-        def open_xml_tag(name, url, remote, path, revision):
+        def open_xml_tag(_, url, remote, path, revision):
             fxml.write('    <project name="%s" remote="%s" path="%s" revision="%s">\n' % (url, remote, path, revision))
 
-        def inc_xml(name, url, remote, path, revision):
+        def inc_xml(name, *_):
             # incfile is included inline and has to work as elements of the 'project'
             incfile = os.path.join(self.xml_dir, '%s.inc' % (name))
             logger.debug('Looking for %s' % (incfile))
@@ -720,10 +717,10 @@ class Setup():
                     fxml.write(line)
                 fbase.close()
 
-        def close_xml_tag(name, url, remote, path, revision):
+        def close_xml_tag(*_):
             fxml.write('    </project>\n')
 
-        def add_xml(name, url, remote, path, revision):
+        def add_xml(name, *_):
             # xmlfile is included after the entry and is completely standalone
             xmlfile = os.path.join(self.xml_dir, '%s.xml' % (name))
             logger.debug('Looking for %s' % (xmlfile))
@@ -953,7 +950,7 @@ class Setup():
         try:
             utils_setup.run_cmd(cmd, environment=self.env, log=log_it)
         except Exception as e:
-            raise
+            raise e
         logger.debug('Done')
 
     # This only exists to check if we have fully sync'ed the project
@@ -972,13 +969,13 @@ class Setup():
             self.call_repo_sync(args)
         except Exception as e:
             if not local_only:
-                raise
+                raise e
             else:
                 logger.info('Using --local-only failed.  Trying full sync.')
                 try:
                     self.call_repo_sync(orig_args)
                 except Exception as e2:
-                    raise
+                    raise e2
 
         logger.debug('Done')
 
@@ -1004,7 +1001,7 @@ class Setup():
 
     def get_path(self, tool):
         cmd = self.which(tool)
-        if (not cmd):
+        if not cmd:
             logger.critical('Cannot find %s in path!' % tool)
             logger.critical('Path was: %s' % os.environ['PATH'])
             self.exit(1)
@@ -1053,7 +1050,7 @@ class Setup():
         logger.debug("Creating %s" % fn)
         open(fn, 'a').close()
 
-    ''' When this is python3.3, use built in version'''
+    # When this is python3.3, use built in version
     def which(self, program):
         path=self.env["PATH"]
         for path in path.split(os.path.pathsep):

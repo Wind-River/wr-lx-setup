@@ -18,11 +18,11 @@
 # Everything mentioned must be python2 compatible
 # for __init__ and any methods invoked here.
 
+import os
+
 from argparse_setup import Argparse_Setup
 
 import settings
-
-import os
 
 class Setup():
     jobs = settings.REPO_JOBS

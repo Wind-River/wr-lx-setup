@@ -18,6 +18,8 @@
 # This program will dump the dependencies for one or more layers in a
 # given branch.  It can be used to verify that when a branch is created
 # that the dependencies have been scanned properly.
+import sys
+from layer_index import Layer_Index
 
 REPLACE = [ ]
 
@@ -34,10 +36,6 @@ INDEXES = [
     },
 ]
 
-import os
-import sys
-
-from layer_index import Layer_Index
 
 def usage():
     print("usage: %s <branch>" % sys.argv[0])
@@ -50,7 +48,6 @@ base_branch=sys.argv[1]
 
 index = Layer_Index(INDEXES, base_branch=base_branch, replace=REPLACE)
 
-import unicodedata
 for lindex in index.index:
     dep_out = []
     branchid = index.getBranchId(lindex, index.getIndexBranch(default=base_branch, lindex=lindex))
@@ -72,4 +69,4 @@ for lindex in index.index:
                     dep_out.append((name, ' '.join(sorted(reqnames)), ' '.join(sorted(recnames))))
 
     for (name, reqs, recs) in sorted(dep_out, key=lambda t: t[0]):
-       print('%s %s (%s)' % (name, reqs, recs))
+        print('%s %s (%s)' % (name, reqs, recs))
