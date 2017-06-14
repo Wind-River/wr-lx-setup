@@ -51,9 +51,9 @@ class Layer_Index():
                     if pindex and pindex['CFG']['DESCRIPTION'] in m_index:
                         lindex = m_index[pindex['CFG']['DESCRIPTION']]
                         for entry in pindex:
-                            if 'apilinks' == entry:
+                            if entry == 'apilinks':
                                 continue
-                            if 'CFG' == entry:
+                            if  entry == 'CFG':
                                 # Conflicts don't matter here, just accept it
                                 lindex[entry] = pindex[entry]
                                 continue
@@ -307,9 +307,9 @@ class Layer_Index():
             pindex = json.load(open(path, 'rt', encoding='utf-8'))
 
             for entry in pindex:
-                if 'apilinks' == entry:
+                if entry == 'apilinks':
                     continue
-                if 'CFG' == entry:
+                if entry == 'CFG':
                     # Conflicts don't matter here, just accept it
                     lindex[entry] = pindex[entry]
                     continue
@@ -367,19 +367,19 @@ class Layer_Index():
                 if 'model' in entry:
                     model = entry['model']
                     if model.startswith('layerindex.'):
-                        if 'branch' == model[11:]:
+                        if model[11:] == 'branch':
                             name = 'branches'
-                        elif 'layeritem' == model[11:]:
+                        elif model[11:] == 'layeritem':
                             name = 'layerItems'
-                        elif 'layerbranch' == model[11:]:
+                        elif model[11:] == 'layerbranch':
                             name = 'layerBranches'
-                        elif 'layerdependency' == model[11:]:
+                        elif model[11:] == 'layerdependency':
                             name = 'layerDependencies'
-                        elif 'recipe' == model[11:]:
+                        elif model[11:] == 'recipe':
                             name = 'recipes'
-                        elif 'machine' == model[11:]:
+                        elif model[11:] == 'machine':
                             name = 'machines'
-                        elif 'distro' == model[11:]:
+                        elif model[11:] == 'distro':
                             name = 'distros'
                         else:
                             name = model[11:]
@@ -451,7 +451,7 @@ class Layer_Index():
             # Need to filter out local information
             pindex = {}
             for entry in lindex:
-                if (IncludeCFG == False and 'CFG' == entry) or 'apilinks' == entry:
+                if (not IncludeCFG  and entry == 'CFG') or entry == 'apilinks':
                     continue
                 pindex[entry] = lindex[entry]
 
@@ -481,9 +481,9 @@ class Layer_Index():
                 return filtered
 
             for entry in lindex:
-                if (IncludeCFG == False and 'CFG' == entry) or 'apilinks' == entry or 'branches' == entry or 'layerBranches' == entry or 'layerItems' == entry:
+                if (not IncludeCFG and entry == 'CFG') or entry == 'apilinks' or entry == 'branches' or entry == 'layerBranches' or entry == 'layerItems':
                     continue
-                elif (IncludeCFG == True and 'CFG' == entry):
+                elif IncludeCFG and entry == 'CFG':
                     pindex[entry] = lindex[entry]
                     continue
                 pindex[entry] = filter_item(lb, entry)
@@ -503,7 +503,7 @@ class Layer_Index():
                     if p_lb['id'] == req_lb['id']:
                         found = True
                         break
-                if found == False:
+                if not found:
                     pindex['layerBranches'].append(req_lb)
 
             # We need to include the layerItems for each layerBranch
@@ -515,13 +515,13 @@ class Layer_Index():
                         if p_li['id'] == li['id']:
                             found = True
                             break
-                    if found == False:
+                    if not found:
                         pindex['layerItems'].append(li)
 
             # If we're mirroring, we need to adjust the URL for the
             # mirror to work properly.  Replace remote with BASE_URL.
             # (This uses the same logic as the default.xml construction)
-            if mirror == True:
+            if mirror:
                 from urllib.parse import urlparse
 
                 from copy import deepcopy
@@ -567,21 +567,21 @@ class Layer_Index():
 
             # Convert the restindex to a dbindex
             for entry in restindex:
-                if (IncludeCFG == False and 'CFG' == entry) or 'apilinks' == entry:
+                if (not IncludeCFG and entry == 'CFG') or entry == 'apilinks':
                     continue
-                elif 'branches' == entry:
+                elif entry == 'branches':
                     model = 'layerindex.branch'
-                elif 'layerItems' == entry:
+                elif entry == 'layerItems':
                     model = 'layerindex.layeritem'
-                elif 'layerBranches' == entry:
+                elif entry == 'layerBranches':
                     model = 'layerindex.layerbranch'
-                elif 'layerDependencies' == entry:
+                elif entry == 'layerDependencies':
                     model = 'layerindex.layerdependency'
-                elif 'recipes' == entry:
+                elif entry == 'recipes':
                     model = 'layerindex.recipe'
-                elif 'machines' == entry:
+                elif entry == 'machines':
                     model = 'layerindex.machine'
-                elif 'distros' == entry:
+                elif entry == 'distros':
                     model = 'layerindex.distro'
                 else:
                     model = 'layerindex.' + entry
@@ -601,7 +601,7 @@ class Layer_Index():
             # Need to filter out local information
             pindex = {}
             for entry in lindex:
-                if (IncludeCFG == False and 'CFG' == entry) or 'apilinks' == entry:
+                if (not IncludeCFG and entry == 'CFG') or entry == 'apilinks':
                     continue
                 pindex[entry] = lindex[entry]
 
@@ -631,7 +631,7 @@ class Layer_Index():
                 return filtered
 
             for entry in lindex:
-                if (IncludeCFG == False and 'CFG' == entry) or 'apilinks' == entry or 'branches' == entry or 'layerBranches' == entry or 'layerItems' == entry:
+                if (not IncludeCFG and entry == 'CFG') or entry == 'apilinks' or entry == 'branches' or entry == 'layerBranches'  or entry == 'layerItems':
                     continue
                 pindex[entry] = filter_item(lb, entry)
 
@@ -703,7 +703,6 @@ class Layer_Index():
         return None
 
     def list_layers(self, base_branch):
-        import unicodedata
         for lindex in self.index:
             logger.plain ('Index: %s' % (lindex['CFG']['DESCRIPTION'] or lindex['CFG']['URL']))
             logger.plain ('%s %s' % (('{:25}'.format('layer'), 'summary')))
@@ -754,7 +753,6 @@ class Layer_Index():
                     for layer in self.find_layer(lindex, layerBranch=lb):
                         for obj in lindex['recipes']:
                             if obj['layerbranch'] == lb['id'] and lb['branch'] == branchid:
-                                lname = layer['name']
                                 pn = obj['pn']
                                 pv = obj['pv']
                                 summary = (obj['summary'] or pn).strip()
@@ -822,13 +820,13 @@ class Layer_Index():
         for ld in lindex['layerDependencies']:
             if layerBranch['id'] == ld['layerbranch']:
                 layers = self.find_layer(lindex, id=ld['dependency'])
-                if (not layers or layers == []) and ld['required'] == True:
+                if (not layers or layers == []) and ld['required']:
                     logger.warning('%s: Unable to find dependency %s -- Skipping' % (self.find_layer(lindex, layerBranch=layerBranch)[0]['name'], ld['dependency']))
                 for layer in layers:
                     for lb in self.getLayerBranch(lindex, layerBranch['branch'], layerItem=layer):
                         if not lb:
                             continue
-                        if not 'required' in ld or ld['required'] == True:
+                        if not 'required' in ld or ld['required']:
                             #print('li_getdep_dep: %s (%s) req %s (%s)' % (self.find_layer(lindex, layerBranch=layerBranch)['name'], layerBranch['id'], self.find_layer(lindex, layerBranch=lb)['name'], ld['dependency']) )
                             required.append(lb)
                         else:

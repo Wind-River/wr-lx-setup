@@ -349,7 +349,7 @@ class Setup():
                 allfound = False
 
         # Add all layers -- if necessary
-        if self.all_layers == True:
+        if self.all_layers:
             for lindex in self.index.index:
                 branchid = self.index.getBranchId(lindex, self.get_branch(lindex=lindex))
                 if not branchid:
@@ -502,12 +502,12 @@ class Setup():
         for (lindex, layerBranch) in self.requiredlayers:
             display_layer(lindex, layerBranch)
 
-        logger.debug('Computed recommended layers:%s' % (["", ' (skipping)'][self.no_recommend == True]))
+        logger.debug('Computed recommended layers:%s' % (["", ' (skipping)'][self.no_recommend]))
         for (lindex, layerBranch) in self.recommendedlayers:
             display_layer(lindex, layerBranch)
 
         # Recommends are disabled, filter it...
-        if self.no_recommend == True:
+        if self.no_recommend:
             self.recommendedlayers = []
 
         logger.debug('Done')
@@ -910,7 +910,7 @@ class Setup():
         else:
             # repo init
             cmd = ['-m', self.default_xml, '-u',  self.project_dir]
-            if self.mirror == True:
+            if self.mirror:
                 cmd.append('--mirror')
 
             cmd.append('--no-repo-verify')
