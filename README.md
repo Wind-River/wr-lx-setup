@@ -58,7 +58,7 @@ The above command will mirror all layers, including download layers into the
 current location, for the branch specified.
 
 To update the mirror, re-run the setup.sh command with the same arguments.
-To add additional branches to your mirror, change the branch in the wrlinux-9,
+To add additional branches to your mirror, change the branch in wrl-lx-setup,
 and re-run the setup.sh with the same arguments.
 
 A user can reference this mirror by doing:
