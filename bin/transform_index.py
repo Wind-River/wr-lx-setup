@@ -119,7 +119,7 @@ INDEXES = [
         'TYPE' : 'restapi-web',
         'URL' : 'http://layers.openembedded.org/layerindex/api/',
         'CACHE' : None,
-        'BRANCH' : 'WRLINUX_9_BASE',
+        'BRANCH' : 'master-wr',
     },
 ]
 
