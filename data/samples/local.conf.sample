@@ -138,6 +138,36 @@ EXTRA_IMAGE_FEATURES ?= "debug-tweaks"
 # NOTE: mklibs also needs to be explicitly enabled for a given image, see local.conf.extended
 USER_CLASSES ?= "buildstats image-mklibs image-prelink"
 
+#
+# Additional rootfs image types
+#
+# The following is a partial list of additional image filesystem types that
+# may be supported by the configured machine;
+#   - 'tar.gz' to create a gzip compressed tarball of the image
+#   - 'tar.bz2' to create a bz2 compressed tarball of the image
+#   - 'ext4' to create an ext4 image
+#
+# NOTE:
+# Due to the way the OpenEmbedded build system processes this variable,
+# you cannot update its contents by using _append or _prepend. You must use
+# the += operator to add one or more options to the IMAGE_FSTYPES variable.
+IMAGE_FSTYPES += "tar.bz2"
+
+# The following options will build a companion 'debug filesystem' in addition
+# to the normal deployable filesystem.  This companion system allows a
+# debugger to know the symbols and related sources.  It can be used to
+# debug a remote 'production' system without having to add the debug symbols
+# and sources to remote system.  If IMAGE_FSTYPES_DEBUGFS is not defined, it
+# defaults to IMAGE_FSTYPES.
+#IMAGE_GEN_DEBUGFS = "1"
+#IMAGE_FSTYPES_DEBUGFS = "tar.bz2"
+
+# The network based PR service host and port
+# Uncomment the following lines to enable PRservice.
+# Set PRSERV_HOST to 'localhost:0' to automatically
+# start local PRService.
+# Set to other values to use remote PRService.
+#PRSERV_HOST = "localhost:0"
 
 #
 # Runtime testing of images
