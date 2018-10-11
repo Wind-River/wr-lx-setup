@@ -158,7 +158,8 @@ class Setup():
         self.load_layer_index()
 
         if self.list_distros:
-            self.index.list_distros(self.base_branch)
+            compat = self.list_distros
+            self.index.list_distros(self.base_branch, compat)
 
         if self.list_machines:
             compat = self.list_machines
