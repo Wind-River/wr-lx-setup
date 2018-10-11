@@ -121,7 +121,7 @@ class Setup():
 
         # Config flags
         self.list_distros = False
-        self.list_machines = False
+        self.list_machines = None
         self.list_layers = False
         self.list_recipes = False
 
@@ -161,7 +161,8 @@ class Setup():
             self.index.list_distros(self.base_branch)
 
         if self.list_machines:
-            self.index.list_machines(self.base_branch)
+            compat = self.list_machines
+            self.index.list_machines(self.base_branch, compat)
 
         if self.list_layers:
             self.index.list_layers(self.base_branch)
