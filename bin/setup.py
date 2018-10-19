@@ -159,10 +159,14 @@ class Setup():
 
         if self.list_distros:
             compat = self.list_distros
+            if compat == 'default':
+                compat = settings.DEFAULT_LAYER_COMPAT_TAG
             self.index.list_distros(self.base_branch, compat)
 
         if self.list_machines:
             compat = self.list_machines
+            if compat == 'default':
+                compat = settings.DEFAULT_LAYER_COMPAT_TAG
             self.index.list_machines(self.base_branch, compat)
 
         if self.list_layers:
