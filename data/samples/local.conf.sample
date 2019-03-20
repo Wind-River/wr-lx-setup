@@ -12,6 +12,19 @@
 # variable as required.
 
 #
+# Network Control
+#
+# Disable bitbake from being able to access the network
+BB_NO_NETWORK ?= '0'
+
+# Only allow downloads from PREMIRRORs, not search the main SRC_URI or MIRRORS.
+# If you have enabled download (dl-layers), use this to restrict fetch to those
+# layers. This also has a side effect of telling the system to ensure the
+# fetched repositories from the local download layer (pre)mirrors are
+# up-to-date.
+BB_FETCH_PREMIRRORONLY ?= '${BB_NO_NETWORK}'
+
+#
 # Machine Selection
 #
 # You need to select a specific machine to target the build with.
