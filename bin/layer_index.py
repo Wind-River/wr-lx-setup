@@ -827,25 +827,24 @@ class Layer_Index():
         if layerItem:
             layerItems.append(layerItem)
 
-        if name:
-            layerItem = self.find_layer(lindex, name=name)
-            if layerItem:
-                layerItems = layerItems + layerItem
-
-        if distro:
-            layerItem = self.find_layer(lindex, distro=distro)
-            if layerItem:
-                layerItems = layerItems + layerItem
-
-        if machine:
-            layerItem = self.find_layer(lindex, machine=machine)
-            if layerItem:
-                layerItems = layerItems + layerItem
-
-        if recipe:
-            layerItem = self.find_layer(lindex, recipe=recipe)
-            if layerItem:
-                layerItems = layerItems + layerItem
+        args = {
+            'name': name,
+            'distro': distro,
+            'machine': machine,
+            'recipe': recipe,
+        }
+        for k, v in args.items():
+            if v:
+                if k == 'name':
+                    layerItem = self.find_layer(lindex, name=v)
+                elif k == 'distro':
+                    layerItem = self.find_layer(lindex, distro=v)
+                elif k == 'machine':
+                    layerItem = self.find_layer(lindex, machine=v)
+                elif k == 'recipe':
+                    layerItem = self.find_layer(lindex, recipe=v)
+                if layerItem:
+                    layerItems = layerItems + layerItem
 
         if layerItems:
             for layerItem in layerItems:
