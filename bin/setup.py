@@ -33,6 +33,7 @@ from argparse_setup import Argparse_Setup
 from layer_index import Layer_Index
 
 import settings
+import sanity
 
 logger = logger_setup.setup_logging()
 
@@ -125,8 +126,7 @@ class Setup():
 
         self.setup_env()
 
-        # Check for all the tools and create a dictionary of the path
-        self.tools = {i : self.get_path(i) for i in self.tool_list}
+        sanity.check_hosttools()
 
         # Config flags
         self.list_distros = False
