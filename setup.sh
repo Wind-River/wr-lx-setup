@@ -26,9 +26,6 @@ GIT_USEREMAIL="customer@company.com"
 # Requires python3
 CMD="bin/setup.py"
 
-# Only requires python2
-CMD_HELP="bin/setup_help.py"
-
 # Adds arguments to the arg processing
 #   1 - argument
 #   2 - variable to define
@@ -259,32 +256,6 @@ if [ $help -ne 1 ]; then
 		fi
 	done
 
-	# The following checks are from oe-buildenv-internal
-	py_v27_check=$(python2 -c 'import sys; print sys.version_info >= (2,7,3)')
-	if [ "$py_v27_check" != "True" ]; then
-		echo >&2 "OpenEmbedded requires 'python2' to be python v2 (>= 2.7.3), not python v3."
-		echo >&2 "Please upgrade your python v2."
-		exit 1
-	fi
-	unset py_v27_check
-
-	# We potentially have code that doesn't parse correctly with older versions 
-	# of Python, and rather than fixing that and being eternally vigilant for 
-	# any other new feature use, just check the version here.
-	py_v34_check=$(python3 -c 'import sys; print(sys.version_info >= (3,4,0))' 2>/dev/null)
-	if [ "$py_v34_check" != "True" ]; then
-		echo >&2 "BitBake requires Python 3.4.0 or later as 'python3'"
-		exit 1
-	fi
-	unset py_v34_check
-
-	# This can happen if python3/urllib was not built with SSL support.
-	python3 -c 'import urllib.request ; dir(urllib.request.HTTPSHandler)' >/dev/null 2>&1
-	if [ $? -ne 0 ]; then
-		echo >&2 "The setup tool requires Python 3.4.0 or later with support for 'urllib.request.HTTPSHandler'"
-		exit 1
-	fi
-
 	repo_check=$(which repo 2>/dev/null)
 	if [ -z "$repo_check" ]; then
 		echo >&2 "Repo is not in the path, setup requires the repo tool."
@@ -297,12 +268,33 @@ if [ $help -ne 1 ]; then
 	add_gitconfig "color.ui" "false"
 	add_gitconfig "color.diff" "false"
 	add_gitconfig "color.status" "false"
-else
-	# If we don't have python3, fall back to the help only version
-	if ! which python3 &> /dev/null; then
-		CMD="${CMD_HELP}"
-	fi
 fi # if help -ne 1
+
+# The following checks are from oe-buildenv-internal
+py_v27_check=$(python2 -c 'import sys; print sys.version_info >= (2,7,3)')
+if [ "$py_v27_check" != "True" ]; then
+	echo >&2 "OpenEmbedded requires 'python2' to be python v2 (>= 2.7.3), not python v3."
+	echo >&2 "Please upgrade your python v2."
+	exit 1
+fi
+unset py_v27_check
+
+# We potentially have code that doesn't parse correctly with older versions 
+# of Python, and rather than fixing that and being eternally vigilant for 
+# any other new feature use, just check the version here.
+py_v34_check=$(python3 -c 'import sys; print(sys.version_info >= (3,4,0))' 2>/dev/null)
+if [ "$py_v34_check" != "True" ]; then
+	echo >&2 "BitBake requires Python 3.4.0 or later as 'python3'"
+	exit 1
+fi
+unset py_v34_check
+
+# This can happen if python3/urllib was not built with SSL support.
+python3 -c 'import urllib.request ; dir(urllib.request.HTTPSHandler)' >/dev/null 2>&1
+if [ $? -ne 0 ]; then
+	echo >&2 "The setup tool requires Python 3.4.0 or later with support for 'urllib.request.HTTPSHandler'"
+	exit 1
+fi
 
 # Python 3 required utf-8 support to work properly, adjust the LANG to en_US.UTF-8.
 export LANG='en_US.UTF-8'
