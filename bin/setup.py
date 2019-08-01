@@ -912,6 +912,7 @@ class Setup():
                     '*.orig',
                     '*.rej',
                     '*~',
+                    '/bin',
                     '/environment-setup-*',
                     '/layers/*',
                     ]
