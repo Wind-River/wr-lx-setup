@@ -943,6 +943,7 @@ class Setup():
             'default.xml',
             '.gitignore',
             '.gitconfig',
+            'config/index-cache',
             ]
 
         # If we are mirroring, skip all of these...
