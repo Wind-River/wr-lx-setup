@@ -77,7 +77,7 @@ Contributions submitted must be signed off under the terms of the Linux Foundati
 for guidelines on the format of patches.
 
 To submit a patch either email the maintainer:
-Mark Hatle <mark.hatle@windriver.com>
+Mark Hatle <mark.hatle@kernel.crashing.org>
 
 or
 
@@ -88,7 +88,7 @@ https://github.com/Wind-River/wr-lx-setup
 License
 -------
 
-Copyright (C) 2016-2017 Wind River Systems, Inc.
+Copyright (C) 2016-2019 Wind River Systems, Inc.
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License version 2 as
