@@ -3,6 +3,7 @@ This project was configured with the following options:
 
 Common targets are:
     core-image-minimal
+    core-image-base
     core-image-sato
     meta-toolchain
     meta-ide-support

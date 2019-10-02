@@ -16,8 +16,10 @@
 # Note this class MUST run in both python2 and python3
 
 import argparse
+import logging
+import string
 import sys
-
+import os
 
 class Argparse_Setup:
     def __init__(self, setup, parser=None):
@@ -32,40 +34,40 @@ class Argparse_Setup:
         parsed_args = self.parser.parse_args(args)
         self.handle_setup_args(parsed_args, args)
 
-    def handle_setup_args(self, parsed_args, _):
+    def handle_setup_args(self, parsed_args, args):
         # Parse setup options
-        if parsed_args.verbose:
+        if (parsed_args.verbose):
             if self.setup:
                 self.setup.set_debug()
             del parsed_args.verbose
 
-        if parsed_args.base_url:
+        if (parsed_args.base_url):
             if self.setup:
                 self.setup.set_base_url(parsed_args.base_url)
             del parsed_args.base_url
 
-        if parsed_args.base_branch:
+        if (parsed_args.base_branch):
             if self.setup:
                 self.setup.set_base_branch(parsed_args.base_branch)
             del parsed_args.base_branch
 
         # Parse repo option
-        if parsed_args.repo_verbose:
+        if (parsed_args.repo_verbose):
             if self.setup:
                 self.setup.set_repo_verbose(parsed_args.repo_verbose)
             del parsed_args.repo_verbose
 
-        if parsed_args.repo_jobs:
+        if (parsed_args.repo_jobs):
             if self.setup:
                 self.setup.set_jobs(parsed_args.repo_jobs)
             del parsed_args.repo_jobs
 
-        if parsed_args.repo_depth:
+        if (parsed_args.repo_depth):
             if self.setup:
                 self.setup.set_depth(parsed_args.repo_depth)
             del parsed_args.repo_depth
 
-        if parsed_args.repo_force_sync:
+        if (parsed_args.repo_force_sync):
             if self.setup:
                 self.setup.set_force_sync(parsed_args.repo_force_sync)
             del parsed_args.repo_force_sync
@@ -87,7 +89,7 @@ class Argparse_Setup:
             if self.setup:
                 self.setup.list_recipes = True
 
-        if parsed_args.list_distros or parsed_args.list_machines or parsed_args.list_layers or parsed_args.list_recipes:
+        if (parsed_args.list_distros or parsed_args.list_machines or parsed_args.list_layers or parsed_args.list_recipes):
             return
 
         # Parse layer selection options
@@ -133,7 +135,7 @@ class Argparse_Setup:
             if self.setup:
                 self.setup.no_recommend = parsed_args.no_recommend
 
-        if parsed_args.mirror:
+        if (parsed_args.mirror):
             if self.layer_select is not True:
                 print('ERROR: The --mirror option requires at least one Layer Section argument, see --help.')
                 sys.exit(1)

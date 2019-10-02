@@ -132,7 +132,9 @@ def fetch_url(url=None, auth=False, debuglevel=0, interactive=0):
         uname = query_input("Username for '%s://%s': " % (up.scheme, up.netloc), interactive)
         passwd = query_input("Password for '%s://%s@%s': " % (up.scheme, uname, up.netloc), interactive)
 
-        logger.debug("%s: u:'%s' p:'%s'" % ( url, uname, passwd ))
+        # This is a security leak, as the username/password could be logged.
+        # Only enable this during development.
+        #logger.debug("%s: u:'%s' p:'%s'" % ( url, uname, passwd ))
 
         password_mgr = urllib.request.HTTPPasswordMgrWithDefaultRealm()
         password_mgr.add_password(None, "%s://%s" % (up.scheme, up.netloc), uname, passwd)

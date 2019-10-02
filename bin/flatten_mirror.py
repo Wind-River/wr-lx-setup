@@ -251,7 +251,7 @@ def main():
                 if line.startswith('#'):
                     continue
                 lsplit = line.split()
-                if not lsplit:
+                if len(lsplit) == 0:
                     continue
                 if len(lsplit) != 2:
                     logger.critical("Subset Folders, invalid line: %s" % (line))

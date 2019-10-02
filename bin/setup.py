@@ -399,7 +399,7 @@ class Setup():
             type = type + ["", 'machine'][machine != None]
             type = type + ["", 'recipe'][recipe != None]
 
-            if ':' in item:
+            if (':' in item):
                 # User told us which layer, so ignore the other bits -- they can be used later...
                 layer = item.split(':')[0]
                 distro = None
@@ -440,7 +440,7 @@ class Setup():
                 allfound = False
 
         # Add all layers -- if necessary
-        if self.all_layers:
+        if self.all_layers == True:
             for lindex in self.index.index:
                 branchid = self.index.getBranchId(lindex, self.get_branch(lindex=lindex))
                 if not branchid:
@@ -580,7 +580,7 @@ class Setup():
 
                 path = 'layers/' + "".join(vcs_url.split('/')[-1:])
 
-                if layer['name'] == 'openembedded-core':
+                if (layer['name'] == 'openembedded-core'):
                     bitbakeBranch = self.index.getBranch(lindex, layerBranch['branch'])['bitbake_branch']
                     logger.debug('bitbake: %s %s %s' % ( settings.BITBAKE, path + '/bitbake', bitbakeBranch ))
 
@@ -1099,7 +1099,7 @@ class Setup():
 
     def get_path(self, tool):
         cmd = self.which(tool)
-        if not cmd:
+        if (not cmd):
             logger.critical('Cannot find %s in path!' % tool)
             logger.critical('Path was: %s' % os.environ['PATH'])
         return cmd
@@ -1147,7 +1147,7 @@ class Setup():
         logger.debug("Creating %s" % fn)
         open(fn, 'a').close()
 
-    # When this is python3.3, use built in version
+    ''' When this is python3.3, use built in version'''
     def which(self, program):
         path=self.env["PATH"]
         for path in path.split(os.path.pathsep):
